@@ -12,10 +12,13 @@ import { Auth } from './pages/auth';
 import { CreateRecipe } from './pages/create-recipe';
 import { SavedRecipes } from './saved-recipes';
 
+import { Navbar } from './components/navbar';
+
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar/>
         <Routes>
           <Route path='/' element={ <Home/> }/>
           <Route path='/auth' element={ <Auth/> }/>
