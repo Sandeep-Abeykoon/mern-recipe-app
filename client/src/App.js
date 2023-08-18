@@ -7,6 +7,8 @@ import { CreateRecipe } from "./pages/create-recipe";
 import { SavedRecipes } from "./pages/saved-recipes";
 import { Auth } from "./pages/auth"
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

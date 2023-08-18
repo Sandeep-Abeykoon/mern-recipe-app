@@ -1,3 +1,7 @@
 .login {
     padding-top: 170px;
 }
+
+#inner-container {
+    background-color: #222;
+}
