@@ -1,7 +1,16 @@
-.login {
-    padding-top: 170px;
+.form-container {
+    background-color: #222;
+    width: 30%;
 }
 
-#inner-container {
-    background-color: #222;
+@media screen and (max-width: 1000px) {
+    .form-container {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .form-container {
+        width: 65%;
+    }
 }

@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { CreateRecipe } from "./pages/create-recipe";
 import { SavedRecipes } from "./pages/saved-recipes";
 import { Auth } from "./pages/auth"
+import { Signup } from "./pages/signup";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create-recipe" element={<CreateRecipe/>}/>
         <Route path="/saved-recipes" element={<SavedRecipes/>}/>
         <Route path="/auth" element={<Auth/>}/>
+        <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </Router>
  
