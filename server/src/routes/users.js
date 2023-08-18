@@ -48,10 +48,10 @@ router.post("/login", async (req, res) => {
         return res.json({ message: "Username or Password is Incorrect"});
     }
 
+    //Creating a token
     const TOKEN_KEY = process.env.TOKEN_KEY;
     const token = jwt.sign({ id: user._id }, TOKEN_KEY);
     res.json({ token, userID: user._id});
 });
-
 
 export { router as userRouter};

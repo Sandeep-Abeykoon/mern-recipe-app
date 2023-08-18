@@ -1,16 +1,41 @@
 import React, { useState } from 'react';
 import "./styles/auth.css";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export const Auth = () => {
 
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState(""); 
+    const [password, setPassword] = useState("");
+    
+    const [_, setCookies] = useCookies(['access_token'])
+
+    const navigate = useNavigate();
+
+    const onSubmit = async(event) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.post("http://localhost:3000/auth/login", {
+                username,
+                password
+            });
+
+            setCookies("access_token", response.data.token);
+            window.localStorage.setItem("userID", response.data.userID);
+            navigate("/home");
+           
+        } catch (error) {
+            console.error(error);  
+        }
+    }
 
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 text-white'>
         <div className='form-container p-5 rounded'>
-            <form>
+            <form onSubmit={onSubmit}>
                 <h3 className='text-center'>Sign In</h3>
 
                 <div className='mb-2'>
