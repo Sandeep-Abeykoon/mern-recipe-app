@@ -1,6 +1,8 @@
+import "./styles/homeStyles.css";
+
 export const Home = () => {
     return (
-        <div>
+        <div className="home">
             Home
         </div>
     );
