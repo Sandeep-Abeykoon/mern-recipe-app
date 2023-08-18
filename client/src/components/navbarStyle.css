@@ -73,6 +73,15 @@
     font-weight: 500;
 }
 
+.nav-links-button:hover {
+    border-color: rgb(80, 80, 238);
+
+    box-shadow:
+        0 0 5px rgb(80, 80, 238),
+        0 0 10px rgb(80, 80, 238),
+        0 0 15px rgb(80, 80, 238);
+}
+
 @media screen and (max-width: 1200px) {
     .NavbarItems {
         z-index: 99;
