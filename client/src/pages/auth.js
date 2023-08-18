@@ -24,7 +24,7 @@ export const Auth = () => {
                     <label htmlFor="check" className='custom-input-label ms-2'>Remember me</label>
                 </div>
 
-                <div className='d-grid'>
+                <div className='d-grid mt-2'>
                     <button className='btn btn-primary'>Sign in</button>
                 </div>
                 <p className='text-end mt-2'>
