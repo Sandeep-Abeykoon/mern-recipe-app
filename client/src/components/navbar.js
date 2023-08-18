@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { MenuData } from "./menuData";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import "./navbarStyle.css"; 
 
 function Navbar() {
-
     const [clicked, setClicked] = useState(false);
+    const [cookies, setCookies] = useCookies(["access_token"]);
+
+    if(cookies.access_token) {
+        const lastObject = MenuData[MenuData.length - 1];
+        lastObject.title = "Logout"
+    }
 
     const handleClick = () => {
         setClicked(!clicked);
