@@ -1,12 +1,21 @@
-import {Link} from 'react-router-dom';
+import { Component } from "react";
 
-export const Navbar = () => {
-    return (
-        <div className="navbar">
-            <Link to="/"> Home </Link>
-            <Link to="/create-recipe"> Create Recipe </Link>
-            <Link to="/saved-recipes"> Saved Recipes </Link>
-            <Link to="/auth"> Login/Register </Link>
-        </div>
-    )
+class Navbar extends Component{
+    render(){
+        return(
+            <nav className="NavbarItems">
+                <h1>
+                    ReciPro <i className="fas fa-hamburger"></i>
+                </h1>
+                <ul>
+                    <li>
+                        <i className="fa-solid fa-house-user"></i>
+                        <a href="./pages/home.js">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        );
+    }
 }
+
+export default Navbar;
