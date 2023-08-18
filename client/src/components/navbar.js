@@ -1,29 +1,26 @@
-import { Component } from "react";
+import { useState } from "react";
 import { MenuData } from "./menuData";
 import { Link } from "react-router-dom";
-
 import "./navbarStyle.css"; 
 
-class Navbar extends Component{
+function Navbar() {
 
-    state = {clicked: false};
+    const [clicked, setClicked] = useState(false);
 
-    handleClick =() => {
-        this.setState({ clicked:!this.state.clicked })
+    const handleClick = () => {
+        setClicked(!clicked);
     }
-
-    render(){
         return(
             <nav className="NavbarItems">
                 <h1 className="logo">
                     ReciPro <i className="fas fa-hamburger"></i>
                 </h1>
 
-                <div className="menu-icons" onClick={this.handleClick}>
-                    <i className={this.state.clicked? "fas fa-times" : "fas fa-bars"}></i>
+                <div className="menu-icons" onClick={handleClick}>
+                    <i className={clicked? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
 
-                <ul className={this.state.clicked? "nav-menu active" : "nav-menu"}>
+                <ul className={clicked? "nav-menu active" : "nav-menu"}>
                     {MenuData.map((item, index) => {
                         return(
                             <li key={index}>
@@ -38,6 +35,5 @@ class Navbar extends Component{
             </nav>
         );
     }
-}
 
 export default Navbar;
