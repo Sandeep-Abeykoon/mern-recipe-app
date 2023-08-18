@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { MenuData } from "./menuData";
 
 class Navbar extends Component{
     render(){
@@ -8,10 +9,14 @@ class Navbar extends Component{
                     ReciPro <i className="fas fa-hamburger"></i>
                 </h1>
                 <ul>
-                    <li>
-                        <i className="fa-solid fa-house-user"></i>
-                        <a href="./pages/home.js">Home</a>
-                    </li>
+                    {MenuData.map((item, index) => {
+                        return(
+                            <li>
+                                <i className="fa-solid fa-house-user"></i>
+                                <a href="./pages/home.js">Home</a>
+                            </li>
+                        ); 
+                    })}
                 </ul>
             </nav>
         );
