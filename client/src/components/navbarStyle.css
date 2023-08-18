@@ -35,3 +35,20 @@
     text-align: center;
     justify-content: end;
 }
+
+.nav-links{
+    text-decoration: none;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+}
+
+.nav-links i{
+   padding-right: 10px;   
+}
+
+.nav-links:hover{
+    background: rgb(80, 80, 238);
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
