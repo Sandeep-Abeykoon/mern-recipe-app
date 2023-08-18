@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { MenuData } from "./menuData";
 
+console.log(MenuData);
 class Navbar extends Component{
     render(){
         return(
@@ -11,9 +12,11 @@ class Navbar extends Component{
                 <ul>
                     {MenuData.map((item, index) => {
                         return(
-                            <li>
-                                <i className="fa-solid fa-house-user"></i>
-                                <a href="./pages/home.js">Home</a>
+                            <li key={index}>
+                                <a href={item.url}
+                                   className={item.cName}>
+                                    <i className={item.icon}></i>{item.title}
+                                </a>
                             </li>
                         ); 
                     })}
