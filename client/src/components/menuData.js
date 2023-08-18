@@ -26,6 +26,6 @@ export const MenuData = [
     {
         title: "Login/Signup",
         url: "#",
-        cName: "nav-links-mobile",
+        cName: "nav-links-button",
     },
 ];

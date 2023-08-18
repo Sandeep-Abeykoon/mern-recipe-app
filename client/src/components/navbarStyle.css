@@ -62,7 +62,18 @@
     display: none;
 }
 
-@media screen and (max-width: 850px) {
+.nav-links-button {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    background-color: #fafafa;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #222;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1200px) {
     .NavbarItems {
         z-index: 99;
     }
@@ -79,10 +90,16 @@
        height: auto;
        position: absolute;
        top: 0;
-       left: 0%;
+       left: -110%;
        align-items: stretch;
        padding: 80px 0 30px 0;
        margin: 0;
+       z-index: -1;
+       transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active {
+        left: 0%;
     }
 
     .nav-links {
@@ -95,6 +112,20 @@
     .nav-links:hover {
         background: rgba(255, 255, 255, 0.25);
         backdrop-filter: blur(20px);
+    }
+
+    .menu-icons {
+        display: block;
+    }
+
+    .nav-links-button {
+        padding: 1.5rem;
+        display: block;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        width: 80%;
+        margin: auto;
     }
 }
     
