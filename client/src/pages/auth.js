@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./styles/auth.css";
 import { Link } from 'react-router-dom';
 
 export const Auth = () => {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState(""); 
+
   return (
     <div className='login template d-flex justify-content-center align-items-center vh-100 text-white'>
         <div className='form-container p-5 rounded'>
@@ -11,12 +15,22 @@ export const Auth = () => {
 
                 <div className='mb-2'>
                     <label htmlFor="username">Username</label>
-                    <input type="text" placeholder='Enter username' className='form-control'/>
+                    <input 
+                    type="text" 
+                    placeholder='Enter username' 
+                    className='form-control'
+                    id='username'
+                    onChange={(event) => setUsername(event.target.value)}/>
                 </div>
 
                 <div className='mb-2'>
                     <label htmlFor="password">Password</label>
-                    <input type="password" placeholder='Enter password' className='form-control'/>
+                    <input 
+                    type="password" 
+                    placeholder='Enter password' 
+                    className='form-control'
+                    id='password'
+                    onChange={(event) => setPassword(event.target.value)}/>
                 </div>
 
                 <div className='mb-2'>
