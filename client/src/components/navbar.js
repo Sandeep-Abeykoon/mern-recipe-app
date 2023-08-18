@@ -1,8 +1,9 @@
 import { Component } from "react";
 import { MenuData } from "./menuData";
+import { Link } from "react-router-dom";
+
 import "./navbarStyle.css"; 
 
-console.log(MenuData); 
 class Navbar extends Component{
 
     state = {clicked: false};
@@ -26,10 +27,10 @@ class Navbar extends Component{
                     {MenuData.map((item, index) => {
                         return(
                             <li key={index}>
-                                <a href={item.url}
+                                <Link to={item.url}
                                    className={item.cName}>
                                     <i className={item.icon}></i>{item.title}
-                                </a>
+                                </Link>
                             </li>
                         ); 
                     })}
