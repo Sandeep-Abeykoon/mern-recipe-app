@@ -8,9 +8,18 @@ function Navbar() {
     const [clicked, setClicked] = useState(false);
     const [cookies, setCookies] = useCookies(["access_token"]);
 
+    const lastObject = MenuData[MenuData.length - 1];
+
     if(cookies.access_token) {
-        const lastObject = MenuData[MenuData.length - 1];
         lastObject.title = "Logout"
+    }
+
+    const logout = () => {
+        if(cookies.access_token) {
+            setCookies("access_token", "");
+            window.localStorage.removeItem("userID");
+            lastObject.title = "Login/Signup"
+        }
     }
 
     const handleClick = () => {
@@ -31,7 +40,8 @@ function Navbar() {
                         return(
                             <li key={index}>
                                 <Link to={item.url}
-                                   className={item.cName}>
+                                   className={item.cName}
+                                   onClick={(index === MenuData.length - 1) ? logout : null}>
                                     <i className={item.icon}></i>{item.title}
                                 </Link>
                             </li>
