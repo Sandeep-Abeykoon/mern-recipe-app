@@ -23,9 +23,11 @@ export const Auth = () => {
                 password
             });
 
+            if (response.status === 200) {
             setCookies("access_token", response.data.token);
             window.localStorage.setItem("userID", response.data.userID);
             navigate("/home");
+            }
            
         } catch (error) {
             console.error(error);  

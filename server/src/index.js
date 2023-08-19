@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
-app.use("recipes", recipesRouter);
+app.use("/recipes", recipesRouter);
 
 const DB_PASSWORD = process.env.DB_PASSWORD;
 

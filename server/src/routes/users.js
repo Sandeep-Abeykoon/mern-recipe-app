@@ -38,20 +38,20 @@ router.post("/login", async (req, res) => {
     const user = await UserModel.findOne({username});
 
     if (!user) {
-        return res.json({ message: "User doesn't exist!"});
+        return res.status(404).json({ message: "User doesn't exist!"});
     }
 
     //Comparing the becrypted user entered password with the database saved password
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if(!isPasswordValid) {
-        return res.json({ message: "Username or Password is Incorrect"});
+        return res.status(401).json({ message: "Username or Password is Incorrect"});
     }
 
     //Creating a token
     const TOKEN_KEY = process.env.TOKEN_KEY;
     const token = jwt.sign({ id: user._id }, TOKEN_KEY);
-    res.json({ token, userID: user._id});
+    res.status(200).json({ token, userID: user._id});
 });
 
 export { router as userRouter};

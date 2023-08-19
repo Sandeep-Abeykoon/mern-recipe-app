@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./styles/auth.css";
 
@@ -7,6 +7,8 @@ export const Signup = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -16,7 +18,8 @@ export const Signup = () => {
                 username,
                 password
             });
-            alert("Registration Completed. Now Login!")
+            alert("Registration Completed. Now Login!");
+            navigate("/auth");
         } catch (error) {
             console.error(error)
         }
