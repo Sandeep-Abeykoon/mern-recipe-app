@@ -30,7 +30,12 @@ export const Auth = () => {
             }
            
         } catch (error) {
-            console.error(error);  
+            if (error.response.status === 404) {
+                alert("The user doesn't exist");
+            }
+            else if (error.response.status === 401) {
+                alert("Username or Password is incorrect");
+            }   
         }
     }
 
