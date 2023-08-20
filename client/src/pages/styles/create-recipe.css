@@ -67,16 +67,17 @@ form button {
     height: 100%;
     width: 40%;
     outline: none;
+    background-color: #f7d7d7;
     color: #222;
-    border: none;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 5px;
+    border-radius: 17px;
     letter-spacing: 1px;
 }
 
 form button:hover {
     color: red;
+    border-color: red;
 }
 
 

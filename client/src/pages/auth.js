@@ -70,8 +70,8 @@ export const Auth = () => {
                     <label htmlFor="check" className='custom-input-label ms-2'>Remember me</label>
                 </div>
 
-                <div className='d-grid mt-2'>
-                    <button className='btn btn-primary'>Sign in</button>
+                <div className='d-flex justify-content-center mt-2'>
+                <button className='btn btn-primary w-100'>Sign in</button>
                 </div>
                 <p className='text-end mt-2'>
                     Forgot <a href="#">Password?</a> <Link to="/signup" className='ms-2'>Sign up</Link>
