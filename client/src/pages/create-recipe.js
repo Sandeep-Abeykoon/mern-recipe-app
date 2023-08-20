@@ -27,7 +27,6 @@ export const CreateRecipe = () => {
         const ingredients = recipe.ingredients;
         ingredients[index] = value;
         setRecipe({ ...recipe, ingredients });
-        console.log(recipe);
     }
 
     return (
@@ -104,6 +103,7 @@ export const CreateRecipe = () => {
                     <button type='submit'>Create Recipe</button>
                 </div>
             </form>
+            <div className='spacer'>Space to the footer </div>
         </div>
     );
 }
