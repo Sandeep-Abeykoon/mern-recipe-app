@@ -51,12 +51,12 @@ export const CreateRecipe = () => {
                         <span className="details">Ingredients</span>
 
                         {recipe.ingredients.map((ingredient, index) => (
-                            <div className='details'>
+                            <div className='details' key={index}>
                             <input 
-                                key={index} 
                                 type='text' 
                                 name='ingredient' 
                                 value={ingredient}
+                                placeholder= {"Ingredient " + (index + 1)}
                                 onChange={(event) => handleIngredientChange(event, index)}
                             />
                             </div>
@@ -101,7 +101,7 @@ export const CreateRecipe = () => {
                     </div>
                 </div>
                 <div className="button">
-                    <button>Add Recipe</button>
+                    <button type='submit'>Create Recipe</button>
                 </div>
             </form>
         </div>
