@@ -1,8 +1,11 @@
 import express from 'express';
 import { RecipeModel } from "../models/Recipes.js";
+import { UserModel } from '../models/Users.js';
 
 const router = express.Router();
 
+
+// To get all the recipes
 router.get("/", async (req, res) => {
     try {
         const response = await RecipeModel.find({});
@@ -10,9 +13,10 @@ router.get("/", async (req, res) => {
     } catch (error) {
         res.json(error);
     }
-})
+});
 
 
+// To save a new recipe
 router.post("/", async (req, res) => {
     const recipe = new RecipeModel(req.body);
 
@@ -23,5 +27,44 @@ router.post("/", async (req, res) => {
         res.json(error);
     }
 });
+
+
+// To update user's saved recipes
+router.put("/", async (req, res) => {
+    try {
+        const recipe = await RecipeModel.findById(req.body.recipeID);
+        const user = await UserModel.findById(req.body.userID);
+        user.savedRecipes.push(recipe);
+        await user.save();
+        res.json({ savedRecipes: user.savedRecipes });
+    } catch (error) {
+       res.json(error);
+    }
+});
+
+
+// To get all the recipes ID's of a particular user
+router.get("/savedRecipes/ids", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.body.userID);
+        res.json({ savedRecipes: user?.savedRecipes });
+    } catch (error) {
+        res.json(error);
+    }
+});
+
+
+// To get all the recipes of a particular user
+router.get("/savedRecipes", async(req, res) => {
+    try {
+        const user = await UserModel.findById(req.body.userID);
+        const savedRecipes = await RecipeModel.find({
+            _id: { $in: user.savedRecipes }
+        });
+        res.json({ savedRecipes })
+    } catch (error) {
+        res.json(error);
+    }
+})
 
 export { router as recipesRouter }
