@@ -21,3 +21,16 @@
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 1px black; 
 }
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}

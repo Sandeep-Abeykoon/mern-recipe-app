@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Oxygen, sans-serif;
+    margin: 2rem;
+}
+
+.card-container {
+    margin-top: 20px;
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 2px #ededed;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-image{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    padding: 1rem;
+}
+
+.card-description {
+    padding: 0 1rem;
+}
+
+.card-button {
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid black;
+    background: transparent;
+    border-radius: 1rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+
+
