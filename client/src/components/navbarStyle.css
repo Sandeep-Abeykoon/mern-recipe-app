@@ -84,7 +84,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .NavbarItems{
+    .NavbarItems .logo {
         z-index: 1;
     }
 
@@ -125,6 +125,7 @@
 
     .menu-icons {
         display: block;
+        z-index: 1;
     }
 
     .nav-links-button {

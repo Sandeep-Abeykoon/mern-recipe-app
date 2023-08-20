@@ -30,6 +30,11 @@ body{
     transform: scale(1.02);
 }
 
+.card:hover .card-button {
+    background-color: #222;
+    color: white;
+}
+
 .card-image{
     height: 12rem;
     width: 100%;
