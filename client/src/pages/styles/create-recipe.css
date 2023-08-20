@@ -45,19 +45,28 @@ form .card-details .card-box {
   margin-bottom: 5px;
 }
 
-.card-details .card-box input {
-    height: 45px;
+.card-details .card-box input,
+.card-details .card-box textarea  {
     width: 70%;
     outline: none;
     border-radius: 5px;
     border: 1px solid #c90a0a;
-    font-size: 16px;
     border-bottom-width: 3px;
     transition: all 0.3s ease;
 }
 
-.card-details .card-box input:focus,
-.card-details .card-box input:valid {
+.card-details .card-box input {
+    height: 45px;
+    font-size: 16px;
+}
+
+.card-details .card-box textarea {
+    height: 150px;
+    font-size: 13px;
+}
+
+.card-details .card-box input:focus, 
+.card-details .card-box textarea:focus {
     border-color: green;
 }
 
