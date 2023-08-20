@@ -17,6 +17,19 @@ export const CreateRecipe = () => {
         setRecipe({ ...recipe, [name]: value });
     }
 
+    // function to add ingredient
+    const addIngredient = () => {
+        setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
+    }
+
+    const handleIngredientChange = (event, index) => {
+        const { value } = event.target;
+        const ingredients = recipe.ingredients;
+        ingredients[index] = value;
+        setRecipe({ ...recipe, ingredients });
+        console.log(recipe);
+    }
+
     return (
         <div className="container">
             <h2 className="page-heading">Create Recipe</h2>
@@ -35,19 +48,35 @@ export const CreateRecipe = () => {
                     </div>
 
                     <div className="card-box">
-                        <span className="details">Description</span>
+                        <span className="details">Ingredients</span>
+
+                        {recipe.ingredients.map((ingredient, index) => (
+                            <div className='details'>
+                            <input 
+                                key={index} 
+                                type='text' 
+                                name='ingredient' 
+                                value={ingredient}
+                                onChange={(event) => handleIngredientChange(event, index)}
+                            />
+                            </div>
+                        ))}
+
+                        <div className="button">
+                        <button type='button' onClick={addIngredient}>Add Ingredient</button>
+                        </div>
+                    </div>
+
+                    <div className="card-box">
+                        <span className="details">Instructions</span>
                         <textarea 
-                            name="description" 
-                            id="description" 
+                            name="instructions" 
+                            id="instructions" 
                             cols="30" 
                             rows="10" 
                             placeholder="Enter the steps" 
                             onChange={handleChange}>
                         </textarea>
-                    </div>
-
-                    <div className="card-box">
-                        <span className="details">Ingredients</span>
                     </div>
 
                     <div className="card-box">
