@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useGetUserID } from '../hooks/usGetUserID'; 
+import axios from 'axios';
 import "./styles/create-recipe.css";
 
 export const CreateRecipe = () => {
+    const userID = useGetUserID();
 
     const [recipe, setRecipe] = useState({
         name: "",
@@ -9,7 +12,7 @@ export const CreateRecipe = () => {
         instructions: "",
         imageUrl: "",
         cookingTime: 0,
-        userOwner: 0
+        userOwner: userID
     });
 
     const handleChange = (event) => {
@@ -29,11 +32,22 @@ export const CreateRecipe = () => {
         setRecipe({ ...recipe, ingredients });
     }
 
+    const onSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            await axios.post("http://localhost:3000/recipes", recipe)
+            alert("Recipe Created");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <div className="container">
             <h2 className="page-heading">Create Recipe</h2>
 
-            <form action="#">
+            <form onSubmit={onSubmit}>
                 <div className="card-details">
                     <div className="card-box">
                         <span className="details">Recipe Name</span>
@@ -105,5 +119,6 @@ export const CreateRecipe = () => {
             </form>
             <div className='spacer'>Space to the footer </div>
         </div>
+        
     );
 }
