@@ -1,7 +1,9 @@
+import "./styles/create-recipe.css";
+
 export const CreateRecipe = () => {
     return (
-        <div>
-            Create Recipe
+        <div className="container">
+            <h2 className="page-heading">Create Recipe</h2>
         </div>
     );
 }
