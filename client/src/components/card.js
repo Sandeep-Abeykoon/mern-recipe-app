@@ -12,7 +12,7 @@ export const Card = (props) => {
              />
              <h2 className='card-title'>{props.title}</h2>
 
-             {props.description.split('<br/>').map((line, index) => (
+             {props.instructions.split('<br/>').map((line, index) => (
                 <div key={index} className='card-description'>{line}</div>
              ))}
              
