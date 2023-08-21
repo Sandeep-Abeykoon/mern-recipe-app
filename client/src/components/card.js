@@ -2,6 +2,7 @@ import React from 'react';
 import "./card.css";
 
 export const Card = (props) => {
+  console.log(props.description)
   return (
     <div className='card'>
         <div className='card-body'>
@@ -11,11 +12,8 @@ export const Card = (props) => {
                 alt= {props.alt}
              />
              <h2 className='card-title'>{props.title}</h2>
-
-             {props.instructions.split('<br/>').map((line, index) => (
-                <div key={index} className='card-description'>{line}</div>
-             ))}
-             
+             <div className='card-description'>{props.description}</div>
+             <div className='cooking-time'>Cooking time : {props.cookingTime} Minutes</div>
         </div>
         <button className='card-button'>View Recipe</button>
     </div>

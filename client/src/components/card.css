@@ -49,6 +49,11 @@ body{
     padding: 0 1rem;
 }
 
+.cooking-time {
+    color: green;
+    font-style: italic;
+}
+
 .card-button {
     padding: 1rem;
     font-family: inherit;

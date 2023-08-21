@@ -32,7 +32,8 @@ export const Home = () => {
                         <Card
                             img = {recipe.imageUrl}
                             title = {recipe.name}
-                            instructions =  {recipe.instructions}
+                            description =  {recipe.description}
+                            cookingTime = {recipe.cookingTime}
                         />
                     </div>
                 ))}

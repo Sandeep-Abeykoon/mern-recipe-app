@@ -11,6 +11,7 @@ export const CreateRecipe = () => {
     const [recipe, setRecipe] = useState({
         name: "",
         ingredients: [],
+        description: "",
         instructions: "",
         imageUrl: "",
         cookingTime: 0,
@@ -82,6 +83,17 @@ export const CreateRecipe = () => {
                         <div className="button">
                         <button type='button' onClick={addIngredient}>Add Ingredient</button>
                         </div>
+                    </div>
+
+                    <div className="card-box">
+                        <span className="details">Mini Description</span>
+                        <input 
+                            id="description" 
+                            name="description" 
+                            type="text" 
+                            placeholder="Enter a mini description" 
+                            onChange={handleChange}
+                        />
                     </div>
 
                     <div className="card-box">
