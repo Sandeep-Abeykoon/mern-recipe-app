@@ -9,12 +9,15 @@ export const Card = (props) => {
 
   const saveRecipe = async (recipeID) => {
     try {
-        await axios.put("http://localhost:3000/recipes", {
+        const response =await axios.put("http://localhost:3000/recipes", {
         userID,
         recipeID
       });
+
+      alert(response.data.message);
+      
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
