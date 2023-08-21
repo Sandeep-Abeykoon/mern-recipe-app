@@ -46,7 +46,8 @@ body{
 }
 
 .card-description {
-    padding: 0 1rem;
+    margin-top: 5px;
+    padding: 5px;
 }
 
 .cooking-time {
@@ -64,6 +65,16 @@ body{
     background: transparent;
     border-radius: 1rem;
     transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+.card-button-save {
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 4px;
+}
+
+.card-button-save:hover {
+    transform: scale(1.01);
 }
 
 

@@ -20,7 +20,6 @@ export const Home = () => {
 
         fetchReipes();
         console.log(recipes);
-
     }, []);
 
     return (
@@ -30,14 +29,15 @@ export const Home = () => {
                 {recipes.map((recipe) => (
                     <div key={recipe._id}>
                         <Card
+                            recipeID = {recipe._id}
                             img = {recipe.imageUrl}
+                            alt = {recipe.name}
                             title = {recipe.name}
                             description =  {recipe.description}
                             cookingTime = {recipe.cookingTime}
                         />
                     </div>
                 ))}
-                
             </div>
         </div>
     );

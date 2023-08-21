@@ -31,6 +31,7 @@ router.post("/", async (req, res) => {
 
 // To update user's saved recipes
 router.put("/", async (req, res) => {
+    console.log(req.body)
     try {
         const recipe = await RecipeModel.findById(req.body.recipeID);
         const user = await UserModel.findById(req.body.userID);
