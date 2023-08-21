@@ -22,6 +22,16 @@ export const SavedRecipes = () => {
     fetchSavedRecipes();
   }, []);
 
+  const unsaveRecipe = async (recipeID) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/recipes/${userID}/${recipeID}`);
+      setSavedRecipes(response.data.savedRecipes)
+    }
+    catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="container">
       <h2 className="page-heading">Saved Recipes</h2>
@@ -36,14 +46,7 @@ export const SavedRecipes = () => {
                   alt={recipe.alt}
                 />
                 <h2 className="card-title">{recipe.title}</h2>
-
-                {savedRecipes.includes(recipe._id) ? (
-                  <h6 className="saved-heading">
-                    Saved <i className="fa-solid fa-check fa-fade"></i>
-                  </h6>
-                ) : (
-                  <button className="card-button-save">Save</button>
-                )}
+                <button className="card-button-save" onClick={ () => unsaveRecipe(recipe._id) }>Unsave</button>
                 <div className="card-description">{recipe.description}</div>
                 <div className="cooking-time">
                   Cooking time : {recipe.cookingTime} Minutes

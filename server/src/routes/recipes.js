@@ -44,6 +44,26 @@ router.put("/", async (req, res) => {
 });
 
 
+// To delete user's saved recipe
+router.delete("/:userID/:recipeID", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.userID);
+        const recipe = await RecipeModel.findById(req.params.recipeID);
+
+        user.savedRecipes.pull(recipe);
+        await user.save();
+
+        const savedRecipes = await RecipeModel.find({
+            _id: { $in: user.savedRecipes }
+        });
+        res.json({ savedRecipes })
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 // To get all the recipes ID's of a particular user
 router.get("/savedRecipes/ids/:userID", async (req, res) => {
     try {
