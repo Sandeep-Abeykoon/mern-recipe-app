@@ -43,7 +43,7 @@ export const Home = () => {
         userID,
         recipeID,
       });
-      alert(response.data.message);
+      setSavedRecipes(response.data.savedRecipes)
     } catch (error) {
       console.error(error);
     }
@@ -64,14 +64,14 @@ export const Home = () => {
                 />
                 <h2 className="card-title">{recipe.title}</h2>
 
-                {2 === 2 ? (
+                {savedRecipes.includes(recipe._id) ? (
                   <h6 className="saved-heading">
-                    Saved <i class="fa-solid fa-check fa-fade"></i>
+                    Saved <i className="fa-solid fa-check fa-fade"></i>
                   </h6>
                 ) : (
                   <button
                     className="card-button-save"
-                    onClick={() => saveRecipe(recipe.recipeID)}
+                    onClick={() => saveRecipe(recipe._id)}
                   >
                     Save
                   </button>

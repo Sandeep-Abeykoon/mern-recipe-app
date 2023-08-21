@@ -32,23 +32,12 @@ router.post("/", async (req, res) => {
 // To update user's saved recipes
 router.put("/", async (req, res) => {
     try {
-        const user = await UserModel.findById(req.body.userID)
+        const user = await UserModel.findById(req.body.userID);
+        const recipe = await RecipeModel.findById(req.body.recipeID);
 
-        // Adding the recipe if it is not already saved (Avoiding duplicate saving)
-        const initialLength = user.savedRecipes.length;
-
-        await UserModel.findOneAndUpdate(
-            { _id: user._id },
-            { $addToSet: {savedRecipes: req.body.recipeID} },
-            { new: true, useFindAndModify: false }
-        );
-
-        // Checking if the new recipe is added or was already there
-        if (initialLength === user.savedRecipes.length) {
-            return res.json({ message: "Recipe was already saved" });
-        }
-        return res.json({ message: "Recipe succesfully saved" });
-
+        user.savedRecipes.push(recipe);
+        await user.save();
+    res.json({ savedRecipes: user.savedRecipes });
     } catch (error) {
         res.json(error);
     }
