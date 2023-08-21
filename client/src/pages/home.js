@@ -2,13 +2,17 @@ import {useEffect, useState } from "react";
 import axios from 'axios';
 import "./styles/home.css";
 import { Card } from "../components/card";
+import { useGetUserID } from '../hooks/useGetUserID'; 
 
 export const Home = () => {
 
     const [recipes, setRecipes] = useState ([]);
+    const [savedRecipes, setSavedRecipes] = useState([]);
+    const userID = useGetUserID();
 
     useEffect(() => {
 
+        // Fetches all the recipies
         const fetchReipes = async () => {
             try {
                 const response = await axios.get("http://localhost:3000/recipes")
@@ -18,8 +22,19 @@ export const Home = () => {
             }
         }
 
+        // Fetches the user saved recipe ID's
+        const fetchSavedRecipies = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/recipes/savedRecipes/ids/${userID}`);
+                setSavedRecipes(response.data.savedRecipes);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
         fetchReipes();
-        console.log(recipes);
+        fetchSavedRecipies();
+        
     }, []);
 
     return (
@@ -35,6 +50,7 @@ export const Home = () => {
                             title = {recipe.name}
                             description =  {recipe.description}
                             cookingTime = {recipe.cookingTime}
+                            isSaved = {savedRecipes.includes(recipe._id) ? true : false}
                         />
                     </div>
                 ))}

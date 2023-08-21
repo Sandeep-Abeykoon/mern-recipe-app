@@ -77,5 +77,8 @@ body{
     transform: scale(1.01);
 }
 
+.saved-heading {
+    font-style: italic;
+}
 
 

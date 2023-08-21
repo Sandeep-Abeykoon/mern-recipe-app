@@ -56,9 +56,9 @@ router.put("/", async (req, res) => {
 
 
 // To get all the recipes ID's of a particular user
-router.get("/savedRecipes/ids", async (req, res) => {
+router.get("/savedRecipes/ids/:userID", async (req, res) => {
     try {
-        const user = await UserModel.findById(req.body.userID);
+        const user = await UserModel.findById(req.params.userID);
         res.json({ savedRecipes: user?.savedRecipes });
     } catch (error) {
         res.json(error);
