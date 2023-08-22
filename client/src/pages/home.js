@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
-import "./styles/home.css";
-import "../components/card.css";
+import "./styles/card.css";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {

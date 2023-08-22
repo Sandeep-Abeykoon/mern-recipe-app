@@ -52,10 +52,10 @@ export const Signup = () => {
                         onChange={(event) => setPassword(event.target.value)}/>
                     </div>
 
-                    <div className='d-grid'>
+                    <div className='d-flex justify-content-center mt-2'>
                         <button 
                         type='submit'
-                        className='btn btn-primary'>Sign Up</button>
+                        className='btn btn-primary w-100'>Sign Up</button>
                     </div>
                     <p className='text-end mt-2'>
                         Already Registered <Link to="/auth" className='ms-2'>Sign in</Link>

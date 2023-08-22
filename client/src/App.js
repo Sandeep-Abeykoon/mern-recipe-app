@@ -1,4 +1,4 @@
-import "./style.css";
+import "./app.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 
@@ -8,7 +8,10 @@ import { SavedRecipes } from "./pages/saved-recipes";
 import { Auth } from "./pages/auth"
 import { Signup } from "./pages/signup";
 import { ViewRecipe } from "./pages/viewRecipe";
+
+import "./pages/styles/common.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 

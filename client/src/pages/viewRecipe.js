@@ -1,5 +1,4 @@
 import React from 'react'
-import "./styles/viewRecipe.module.css";
 
 export const ViewRecipe = () => {
   return (
