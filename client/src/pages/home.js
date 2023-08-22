@@ -4,11 +4,13 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import "./styles/home.css";
 import "../components/card.css";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [cookies, _] = useCookies(["access_token"]);
+  const navigate = useNavigate();
   const userID = useGetUserID();
 
   useEffect(() => {
@@ -54,6 +56,10 @@ export const Home = () => {
     }
   };
 
+  const viewRecipeButtonClick = () => {
+    navigate("/viewRecipe");
+  }
+
   return (
     <div className="container">
       <h2 className="page-heading">Home</h2>
@@ -87,7 +93,7 @@ export const Home = () => {
                   Cooking time : {recipe.cookingTime} Minutes
                 </div>
               </div>
-              <button className="card-button">View Recipe</button>
+              <button className="card-button" onClick={ () => viewRecipeButtonClick()}>View Recipe</button>
             </div>
           </div>
         ))}
