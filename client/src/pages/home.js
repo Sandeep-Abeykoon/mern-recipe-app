@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
+import { useCookies } from "react-cookie";
 import "./styles/home.css";
 import "../components/card.css";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [cookies, _] = useCookies(["access_token"]);
   const userID = useGetUserID();
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export const Home = () => {
         userID,
         recipeID,
       }, {
-        headers: {authorization : "fegfhr6765465476"}
+        headers: {authorization : cookies.access_token}
       });
       setSavedRecipes(response.data.savedRecipes)
     } catch (error) {
