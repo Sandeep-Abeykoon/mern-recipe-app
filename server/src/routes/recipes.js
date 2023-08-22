@@ -1,7 +1,7 @@
 import express from 'express';
 import { RecipeModel } from "../models/Recipes.js";
 import { UserModel } from '../models/Users.js';
-import { veryfyToken } from './users.js';
+import { verifyToken } from './users.js';
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
 
 // To save a new recipe
-router.post("/", veryfyToken, async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
     const recipe = new RecipeModel(req.body);
 
     try {
@@ -31,7 +31,7 @@ router.post("/", veryfyToken, async (req, res) => {
 
 
 // To update user's saved recipes
-router.put("/", veryfyToken , async (req, res) => {
+router.put("/", verifyToken , async (req, res) => {
     try {
         const user = await UserModel.findById(req.body.userID);
         const recipe = await RecipeModel.findById(req.body.recipeID);
@@ -46,7 +46,7 @@ router.put("/", veryfyToken , async (req, res) => {
 
 
 // To delete user's saved recipe
-router.delete("/:userID/:recipeID", async (req, res) => {
+router.patch("/:userID/:recipeID/remove", verifyToken, async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID);
         const recipe = await RecipeModel.findById(req.params.recipeID);
@@ -66,7 +66,7 @@ router.delete("/:userID/:recipeID", async (req, res) => {
 
 
 // To get all the recipes ID's of a particular user
-router.get("/savedRecipes/ids/:userID", veryfyToken , async (req, res) => {
+router.get("/savedRecipes/ids/:userID", verifyToken , async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID);
         res.json({ savedRecipes: user?.savedRecipes });

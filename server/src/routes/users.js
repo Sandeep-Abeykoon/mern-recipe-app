@@ -57,8 +57,8 @@ router.post("/login", async (req, res) => {
 
 export { router as userRouter};
 
-// Middleware to veryfy user requests by the token
-export const veryfyToken = (req, res, next) => {
+// Middleware to verify user requests by the token
+export const verifyToken = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (token) {

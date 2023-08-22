@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "./styles/saved-recipes.css";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 export const SavedRecipes = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [cookies, _] = useCookies(["access_token"]);
   const userID = useGetUserID();
 
   useEffect(() => {
@@ -24,7 +26,10 @@ export const SavedRecipes = () => {
 
   const unsaveRecipe = async (recipeID) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/recipes/${userID}/${recipeID}`);
+      const response = await axios.patch(`http://localhost:3000/recipes/${userID}/${recipeID}/remove`,
+      {},
+      {headers: {authorization: cookies.access_token}}
+      );
       setSavedRecipes(response.data.savedRecipes)
     }
     catch (error) {
