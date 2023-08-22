@@ -1,17 +1,8 @@
-.form-container {
+.login-form-container,
+.signup-form-container {
     background-color: #222;
-    width: 30%;
-}
-
-@media screen and (max-width: 1000px) {
-    .form-container {
-        width: 45%;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .form-container {
-        width: 65%;
-    }
+    width: 400px;
+    margin-top: 10%;
+    border-radius: 25px;
 }
 

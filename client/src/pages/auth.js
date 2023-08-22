@@ -40,8 +40,8 @@ export const Auth = () => {
     }
 
   return (
-    <div className='login template d-flex justify-content-center align-items-center vh-100 text-white'>
-        <div className='form-container p-5 rounded'>
+    <div className='container'>
+        <div className='login-form-container p-5'>
             <form onSubmit={onSubmit}>
                 <h3 className='text-center'>Sign In</h3>
 

@@ -1,5 +1,4 @@
-form {
-    margin-top: 20px;
+.create-recipe-form {
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
@@ -7,22 +6,22 @@ form {
     background: #222;
 }
 
-.container form .card-details {
+.create-recipe-form .input-details {
     margin-top: 25px;
 }
 
-form .card-details .card-box {
+.create-recipe-form .input-details .input-box {
     margin-bottom: 15px;
 }
 
-.card-details .card-box .details {
+.input-details .input-box .details {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.card-details .card-box input,
-.card-details .card-box textarea  {
+.input-details .input-box input,
+.input-details .input-box textarea  {
     width: 70%;
     outline: none;
     border-radius: 5px;
@@ -31,22 +30,22 @@ form .card-details .card-box {
     transition: all 0.3s ease;
 }
 
-.card-details .card-box input {
+.input-details .input-box input {
     height: 45px;
     font-size: 16px;
 }
 
-.card-details .card-box textarea {
+.input-details .input-box textarea {
     height: 150px;
     font-size: 13px;
 }
 
-.card-details .card-box input:focus, 
-.card-details .card-box textarea:focus {
+.input-details .input-box input:focus, 
+.input-details .input-box textarea:focus {
     border-color: green;
 }
 
-form button {
+.create-recipe-form button {
     padding: 10px 0;
     margin-top: 10px;
     height: 100%;
@@ -60,7 +59,7 @@ form button {
     letter-spacing: 1px;
 }
 
-form button:hover {
+.create-recipe-form button:hover {
     color: red;
     border-color: red;
 }

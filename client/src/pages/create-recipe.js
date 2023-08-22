@@ -57,9 +57,9 @@ export const CreateRecipe = () => {
         <div className="container">
             <h2 className="page-heading">Create Recipe</h2>
 
-            <form onSubmit={onSubmit}>
-                <div className="card-details">
-                    <div className="card-box">
+            <form className='create-recipe-form' onSubmit={onSubmit}>
+                <div className="input-details">
+                    <div className="input-box">
                         <span className="details">Recipe Name</span>
                         <input 
                             id="name" 
@@ -70,7 +70,7 @@ export const CreateRecipe = () => {
                         />
                     </div>
 
-                    <div className="card-box">
+                    <div className="input-box">
                         <span className="details">Ingredients</span>
 
                         {recipe.ingredients.map((ingredient, index) => (
@@ -90,7 +90,7 @@ export const CreateRecipe = () => {
                         </div>
                     </div>
 
-                    <div className="card-box">
+                    <div className="input-box">
                         <span className="details">Mini Description</span>
                         <input 
                             id="description" 
@@ -101,7 +101,7 @@ export const CreateRecipe = () => {
                         />
                     </div>
 
-                    <div className="card-box">
+                    <div className="input-box">
                         <span className="details">Instructions</span>
                         <textarea 
                             name="instructions" 
@@ -113,7 +113,7 @@ export const CreateRecipe = () => {
                         </textarea>
                     </div>
 
-                    <div className="card-box">
+                    <div className="input-box">
                         <span className="details">Image URL</span>
                         <input 
                             id="imageUrl" 
@@ -124,7 +124,7 @@ export const CreateRecipe = () => {
                         />
                     </div>
 
-                    <div className="card-box">
+                    <div className="input-box">
                         <span className="details">Cooking Time (minutes)</span>
                         <input 
                             id="cookingTime" 

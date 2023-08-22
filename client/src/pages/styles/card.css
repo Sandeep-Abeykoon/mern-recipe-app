@@ -6,10 +6,6 @@
     padding: 0;
 }
 
-.card-container {
-    margin-top: 20px;
-}
-
 .card {
     overflow: hidden;
     box-shadow: 0 2px 2px #ededed;
@@ -19,6 +15,18 @@
     justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card:hover {
