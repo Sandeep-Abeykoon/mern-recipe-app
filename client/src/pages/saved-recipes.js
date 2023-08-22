@@ -45,7 +45,7 @@ export const SavedRecipes = () => {
                   src={recipe.imageUrl}
                   alt={recipe.alt}
                 />
-                <h2 className="card-title">{recipe.title}</h2>
+                <h2 className="card-title">{recipe.name}</h2>
                 <button className="card-button-save" onClick={ () => unsaveRecipe(recipe._id) }>Unsave</button>
                 <div className="card-description">{recipe.description}</div>
                 <div className="cooking-time">

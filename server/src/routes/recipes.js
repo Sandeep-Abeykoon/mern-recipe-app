@@ -66,7 +66,7 @@ router.delete("/:userID/:recipeID", async (req, res) => {
 
 
 // To get all the recipes ID's of a particular user
-router.get("/savedRecipes/ids/:userID", async (req, res) => {
+router.get("/savedRecipes/ids/:userID", veryfyToken , async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID);
         res.json({ savedRecipes: user?.savedRecipes });

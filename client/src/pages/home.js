@@ -26,7 +26,8 @@ export const Home = () => {
     const fetchSavedRecipies = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/recipes/savedRecipes/ids/${userID}`
+          `http://localhost:3000/recipes/savedRecipes/ids/${userID}`,
+          {headers: {authorization: cookies.access_token}}
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (error) {
@@ -66,9 +67,8 @@ export const Home = () => {
                   src={recipe.imageUrl}
                   alt={recipe.alt}
                 />
-                <h2 className="card-title">{recipe.title}</h2>
+                <h2 className="card-title">{recipe.name}</h2>
 
-                
                 {cookies.access_token && savedRecipes.includes(recipe._id) ? (
                   <h6 className="saved-heading">
                     Saved <i className="fa-solid fa-check fa-fade"></i>
