@@ -42,6 +42,8 @@ export const Home = () => {
       const response = await axios.put("http://localhost:3000/recipes", {
         userID,
         recipeID,
+      }, {
+        headers: {authorization : "fegfhr6765465476"}
       });
       setSavedRecipes(response.data.savedRecipes)
     } catch (error) {

@@ -1,6 +1,7 @@
 import express from 'express';
 import { RecipeModel } from "../models/Recipes.js";
 import { UserModel } from '../models/Users.js';
+import { veryfyToken } from './users.js';
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.get("/", async (req, res) => {
 
 
 // To save a new recipe
-router.post("/", async (req, res) => {
+router.post("/", veryfyToken, async (req, res) => {
     const recipe = new RecipeModel(req.body);
 
     try {
@@ -30,7 +31,7 @@ router.post("/", async (req, res) => {
 
 
 // To update user's saved recipes
-router.put("/", async (req, res) => {
+router.put("/", veryfyToken , async (req, res) => {
     try {
         const user = await UserModel.findById(req.body.userID);
         const recipe = await RecipeModel.findById(req.body.recipeID);
@@ -57,7 +58,7 @@ router.delete("/:userID/:recipeID", async (req, res) => {
             _id: { $in: user.savedRecipes }
         });
         res.json({ savedRecipes })
-        
+
     } catch (error) {
         console.log(error)
     }

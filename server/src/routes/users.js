@@ -6,6 +6,8 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt'
 import { UserModel } from '../models/Users.js';
 
+const TOKEN_KEY = process.env.TOKEN_KEY;
+
 const router = express.Router();
 
 // New User register function
@@ -49,9 +51,24 @@ router.post("/login", async (req, res) => {
     }
 
     //Creating a token
-    const TOKEN_KEY = process.env.TOKEN_KEY;
     const token = jwt.sign({ id: user._id }, TOKEN_KEY);
     res.status(200).json({ token, userID: user._id});
 });
 
 export { router as userRouter};
+
+// Middleware to veryfy user requests by the token
+export const veryfyToken = (req, res, next) => {
+    const token = req.headers.authorization;
+
+    if (token) {
+        jwt.verify(token, TOKEN_KEY, (err) => {
+            if (err) {
+                return res.sendStatus(403);
+            }
+            next();
+        });
+    } else {
+        res.sendStatus(401);
+    }
+}
