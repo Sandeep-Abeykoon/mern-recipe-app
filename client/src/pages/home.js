@@ -68,18 +68,20 @@ export const Home = () => {
                 />
                 <h2 className="card-title">{recipe.title}</h2>
 
-                {savedRecipes.includes(recipe._id) ? (
+                
+                {cookies.access_token && savedRecipes.includes(recipe._id) ? (
                   <h6 className="saved-heading">
                     Saved <i className="fa-solid fa-check fa-fade"></i>
                   </h6>
-                ) : (
+                ) : cookies.access_token? (
                   <button
                     className="card-button-save"
                     onClick={() => saveRecipe(recipe._id)}
                   >
                     Save
                   </button>
-                )}
+                ) : null}
+
                 <div className="card-description">{recipe.description}</div>
                 <div className="cooking-time">
                   Cooking time : {recipe.cookingTime} Minutes

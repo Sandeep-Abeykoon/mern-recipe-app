@@ -37,6 +37,9 @@ function Navbar() {
 
                 <ul className={clicked? "nav-menu active" : "nav-menu"}>
                     {MenuData.map((item, index) => {
+                        if (item.title === "Saved Recipes" && !cookies.access_token) {
+                            return null;
+                        }
                         return(
                             <li key={index}>
                                 <Link to={item.url}
