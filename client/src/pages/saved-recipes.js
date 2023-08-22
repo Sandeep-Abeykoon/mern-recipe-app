@@ -13,7 +13,9 @@ export const SavedRecipes = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/recipes/savedRecipes/${userID}`
+          `http://localhost:3000/recipes/savedRecipes/${userID}`, {
+            headers: {authorization: cookies.access_token}
+          }
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (error) {

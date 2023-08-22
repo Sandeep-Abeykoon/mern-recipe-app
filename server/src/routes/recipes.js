@@ -77,7 +77,7 @@ router.get("/savedRecipes/ids/:userID", verifyToken , async (req, res) => {
 
 
 // To get all the recipes of a particular user
-router.get("/savedRecipes/:userID", async(req, res) => {
+router.get("/savedRecipes/:userID", verifyToken, async(req, res) => {
     try {
         const user = await UserModel.findById(req.params.userID);
         const savedRecipes = await RecipeModel.find({
