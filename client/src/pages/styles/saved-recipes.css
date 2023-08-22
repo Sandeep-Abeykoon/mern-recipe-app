@@ -1,6 +1,7 @@
 *{
     font-family: 'Roboto Slab', serif;
 }
+
 .container {
     box-sizing: border-box;
     color: white;
@@ -26,6 +27,21 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+}
+
+.no-saved-recipies {
+    margin: auto;
+    text-align: center;
+    animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 

@@ -35,6 +35,11 @@ export const SavedRecipes = () => {
   return (
     <div className="container">
       <h2 className="page-heading">Saved Recipes</h2>
+
+      {savedRecipes.length === 0? (
+        <div className="no-saved-recipies">No Saved recipies available...</div>
+      ) : null}
+
       <div className="card-container">
         {savedRecipes.map((recipe) => (
           <div key={recipe._id}>
