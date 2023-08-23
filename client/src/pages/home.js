@@ -55,8 +55,8 @@ export const Home = () => {
     }
   };
 
-  const viewRecipeButtonClick = () => {
-    navigate("/viewRecipe");
+  const viewRecipeButtonClick = (recipeID) => {
+    navigate(`/viewRecipe/${recipeID}`);
   }
 
   return (
@@ -92,7 +92,7 @@ export const Home = () => {
                   Cooking time : {recipe.cookingTime} Minutes
                 </div>
               </div>
-              <button className="card-button" onClick={ () => viewRecipeButtonClick()}>View Recipe</button>
+              <button className="card-button" onClick={ () => viewRecipeButtonClick(recipe._id)}>View Recipe</button>
             </div>
           </div>
         ))}

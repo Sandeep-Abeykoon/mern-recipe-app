@@ -17,6 +17,17 @@ router.get("/", async (req, res) => {
 });
 
 
+// To get a particular recipe
+router.get("/:recipeID", async (req, res) => {
+    try {
+        const recipe = await RecipeModel.findById(req.params.recipeID);
+        res.json(recipe);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
 // To save a new recipe
 router.post("/", verifyToken, async (req, res) => {
     const recipe = new RecipeModel(req.body);
