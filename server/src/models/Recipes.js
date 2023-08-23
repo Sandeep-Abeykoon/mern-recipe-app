@@ -10,7 +10,7 @@ const RecipeSchema = new mongoose.Schema({
     instructions: { type: String, required: true },
     imageUrl: { type: String, required: true },
     cookingTime: { type: Number, required: true },
-    userOwner: { type: mongoose.Schema.Types.ObjectId, ref: "users", required: true }
+    recipeOwner: { type: mongoose.Schema.Types.ObjectId, ref: "users", required: true }
 })
 
 export const RecipeModel = mongoose.model("recipes", RecipeSchema);

@@ -7,6 +7,7 @@ export const Signup = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [displayName, setdisplayName] = useState("");
     const navigate = useNavigate();
 
 
@@ -16,7 +17,8 @@ export const Signup = () => {
         try {
             await axios.post("http://localhost:3000/auth/register", {
                 username,
-                password
+                password,
+                displayName
             });
             alert("Registration Completed. Now Login!");
             navigate("/auth");
@@ -50,6 +52,17 @@ export const Signup = () => {
                         id='password'
                         value={password} 
                         onChange={(event) => setPassword(event.target.value)}/>
+                    </div>
+                    
+                    <div className='mb-2'>
+                        <label htmlFor="displayname">Display-name</label>
+                        <input
+                         type="text" 
+                         placeholder='Enter display-name' 
+                         className='form-control' 
+                         id='displayname' 
+                         value={displayName}
+                         onChange={(event) => setdisplayName(event.target.value)}/>
                     </div>
 
                     <div className='d-flex justify-content-center mt-2'>
