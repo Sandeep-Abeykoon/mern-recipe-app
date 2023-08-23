@@ -55,6 +55,17 @@ router.post("/login", async (req, res) => {
     res.status(200).json({ token, userID: user._id});
 });
 
+
+// To get display from userId
+router.get("/:userID", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.userID).select('displayName');
+        res.json(user.displayName)
+    } catch (error) {
+        console.error(error);
+    }
+})
+
 export { router as userRouter};
 
 // Middleware to verify user requests by the token

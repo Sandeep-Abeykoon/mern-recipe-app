@@ -9,20 +9,27 @@ export const ViewRecipe = () => {
  
   const { recipeID } = useParams();
   const [recipe, setRecipe] = useState({});
+  const [recipeOwnerDisplayName, setRecipeOwnerDisplayName] = useState("");
 
   useEffect(() => {
 
     // Fetch recipe details
-    const fetchReipe = async () => {
+    const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/recipes/${recipeID}`);
-      setRecipe(response.data);
+      const recipeResponse = await axios.get(`http://localhost:3000/recipes/${recipeID}`);
+      const recipeData = recipeResponse.data;
+      setRecipe(recipeData);
+
+      // Fetch display name of the recipe-created-user
+      const ownerNameresponse = await axios.get(`http://localhost:3000/auth/${recipeData.recipeOwner}`);
+      setRecipeOwnerDisplayName(ownerNameresponse.data);
     } catch (error) {
       console.error(error);
     }
   }
 
-  fetchReipe();
+  fetchData();
+  
 }, [recipeID] );
 
   return (
@@ -54,8 +61,8 @@ export const ViewRecipe = () => {
                 })}
               </div>
             </div>
-                <Tippy content="Click me to navigate">
-                  <div className="user-creater">By: Sandeep Abeykoon</div>
+                <Tippy content="Click to visit user">
+                  <div className="user-creater">By: {recipeOwnerDisplayName}</div>
                 </Tippy>
           </div>
         </div>
