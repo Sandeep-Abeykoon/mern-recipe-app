@@ -1,7 +1,11 @@
 import React from "react";
 import "./styles/viewRecipe.css";
+import { useParams } from "react-router-dom";
 
 export const ViewRecipe = () => {
+
+  const { recipeID } = useParams();
+  console.log(recipeID);
   return (
     <div className="container">
       <h2 className="page-heading">View Recipe</h2>
