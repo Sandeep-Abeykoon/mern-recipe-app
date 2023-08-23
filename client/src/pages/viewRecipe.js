@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles/viewRecipe.css";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -52,7 +54,9 @@ export const ViewRecipe = () => {
                 })}
               </div>
             </div>
-
+                <Tippy content="Click me to navigate">
+                  <div className="user-creater">By: Sandeep Abeykoon</div>
+                </Tippy>
           </div>
         </div>
       </div>

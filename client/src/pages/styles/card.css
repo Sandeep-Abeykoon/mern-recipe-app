@@ -13,13 +13,13 @@
 }
 
 .card {
+    position: relative;
     overflow: hidden;
     box-shadow: 0 2px 2px #ededed;
     border-radius: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
     transition: transform 200ms ease-in;
 }
 
