@@ -33,7 +33,6 @@
 
 .viewRecipe-card .instructions-content {
     padding: 10px;
-    white-space: pre-line;
     text-align: justify;
     font-size: small;
 }

@@ -41,7 +41,16 @@ export const ViewRecipe = () => {
 
             <div className="instructions">
               <div className="instructions-heading">Instructions</div>
-              <div className="instructions-content">{recipe.instructions}</div>
+              <div className="instructions-content">
+                {recipe.instructions?.split("\n").map((line, index) => {
+                  return(
+                    <div className="line" key={index}>
+                      <span className="line-number">{index + 1}. </span>
+                      <span className="line-content">{line}</span>
+                    </div>
+                    );
+                })}
+              </div>
             </div>
 
           </div>
