@@ -1,3 +1,18 @@
 .viewRecipe-card .card-image{
     height: 20rem;
+    width: 30rem;
+    border-radius: 10px;
+    transition: transform 200ms ease-in;
+}
+
+.viewRecipe-card .card-image:hover {
+    transform: scale(1.05); 
+}
+
+
+.viewRecipe-card .card {
+    width: 800px;
+    min-height: 600px;
+    border: 5px solid #222;
+    border-radius: 15px;
 }

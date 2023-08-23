@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/viewRecipe.css";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export const ViewRecipe = () => {
-
+ 
   const { recipeID } = useParams();
-  console.log(recipeID);
+  const [recipe, setRecipe] = useState({});
+
+  useEffect(() => {
+
+    // Fetch recipe details
+    const fetchReipe = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/recipes/${recipeID}`);
+      setRecipe(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  fetchReipe();
+}, [recipeID] );
+
   return (
     <div className="container">
       <h2 className="page-heading">View Recipe</h2>
@@ -14,13 +31,13 @@ export const ViewRecipe = () => {
           <div className="card-body">
             <img
               className="card-image"
-              src="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w="
-              alt="Food"
+              src= {recipe.imageUrl}
+              alt= {recipe.name}
             />
-            <h2 className="card-title">APPLE</h2>
+            <h2 className="card-title">{recipe.name}</h2>
 
-            <div className="card-description">Description</div>
-            <div className="cooking-time">Cooking time : 5 Minutes</div>
+            <div className="card-description">{recipe.description}</div>
+            <div className="cooking-time">Cooking time : {recipe.cookingTime} Minutes</div>
           </div>
         </div>
       </div>

@@ -41,16 +41,16 @@
     height: 13rem;
 }
 
-.card-container .card-title {
+.card-title {
     padding: 1rem;
 }
 
-.card-container .card-description {
+.card-description {
     margin-top: 5px;
     padding: 5px;
 }
 
-.card-container .cooking-time {
+.cooking-time {
     color: green;
     font-style: italic;
 }
