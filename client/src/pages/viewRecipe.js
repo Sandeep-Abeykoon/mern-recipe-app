@@ -38,6 +38,12 @@ export const ViewRecipe = () => {
 
             <div className="card-description">{recipe.description}</div>
             <div className="cooking-time">Cooking time : {recipe.cookingTime} Minutes</div>
+
+            <div className="instructions">
+              <div className="instructions-heading">Instructions</div>
+              <div className="instructions-content">{recipe.instructions}</div>
+            </div>
+
           </div>
         </div>
       </div>

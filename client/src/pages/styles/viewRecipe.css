@@ -16,3 +16,24 @@
     border: 5px solid #222;
     border-radius: 15px;
 }
+
+.viewRecipe-card .instructions{
+    border: 1px solid #222;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.viewRecipe-card .instructions-heading {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: oblique;
+}
+
+.viewRecipe-card .instructions-content {
+    padding: 10px;
+    white-space: pre-line;
+    text-align: justify;
+    font-size: small;
+}
